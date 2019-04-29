@@ -39,8 +39,8 @@ public class Main {
         // Declaracion de constantes: valorInicialMatricula
         final float VALOR_INICIAL_MATRICULA = 1330;
 
-        // Inicializamos descuentoAplicado en 3% por el gasto administrativo que siempre se aplica
-        descuentoAplicado = 2;
+        // Inicializamos descuentoAplicado en 0
+        descuentoAplicado = 0;
 
         // Datos a pedir al estudiante:
         // Ciudad de de nacimiento
@@ -82,8 +82,15 @@ public class Main {
         if (numCargasFamiliares >1){
             descuentoAplicado += Porcentajes.descCargaFamiliar;
         }
+
+
+
         // Calculamos el total reduciendo el descuento.
-        total = VALOR_INICIAL_MATRICULA - ((VALOR_INICIAL_MATRICULA / 100) * descuentoAplicado);
+        total = VALOR_INICIAL_MATRICULA - ((VALOR_INICIAL_MATRICULA/100)*descuentoAplicado);
+
+        // Se le debe agregar 2% por trámite administrativos
+        total += ((total/100)*2);
+
         // Mostramos el total
         System.out.println("El total a apagar es de " + total + "$ de matricula.");
 
